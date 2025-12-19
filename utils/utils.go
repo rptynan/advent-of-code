@@ -1,5 +1,7 @@
 package utils
 
+import "math"
+
 func Max(a, b int) int {
 	if a > b {
 		return a
@@ -19,4 +21,18 @@ func Abs(a int) int {
 		return -a
 	}
 	return a
+}
+
+func Pow(base, exp int) int {
+	// Hacky but hey
+	return int(math.Pow(float64(base), float64(exp)))
+}
+
+func CountSetBits(n int) int {
+	count := 0
+	for n > 0 {
+		count += n & 1
+		n >>= 1
+	}
+	return count
 }
